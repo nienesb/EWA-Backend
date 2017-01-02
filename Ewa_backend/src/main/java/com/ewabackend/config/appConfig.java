@@ -21,7 +21,7 @@ import org.springframework.web.servlet.view.JstlView;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.ewabackend")
+@ComponentScan(basePackages = "com.ewabackend.*")
 public class appConfig extends WebMvcConfigurerAdapter {
 
     @Bean

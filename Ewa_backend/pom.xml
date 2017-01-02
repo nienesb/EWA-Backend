@@ -39,7 +39,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
-            <version>4.0.3.RELEASE</version>
+            <version>4.3.3.RELEASE</version>
             <type>jar</type>
         </dependency>
 
@@ -50,13 +50,6 @@
             <version>5.2.5.Final</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-annotations -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-annotations</artifactId>
-            <version>3.5.6-Final</version>
-        </dependency>
-
         
         <dependency>
             <groupId>javax</groupId>
@@ -65,18 +58,22 @@
             <scope>provided</scope>
         </dependency>
         
+        
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.22</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.21</version>
+            <version>1.7.22</version>
         </dependency>
-    
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.1.7</version>
-        </dependency>
-    
+        
     </dependencies>
 
     <build>

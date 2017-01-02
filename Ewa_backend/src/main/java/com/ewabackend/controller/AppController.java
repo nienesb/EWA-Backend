@@ -14,24 +14,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.ewabackend.service.UserService;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  *
  * @author Milan
  */
-@Controller
-@RequestMapping("/")
+@RestController
 @ComponentScan("com.ewabackend.service")
 public class AppController {
     
     @Autowired
     UserService userService;
-     
-    @RequestMapping(value = "/user/{studentnr}", method = RequestMethod.GET, produces = "application/json")
-    public User getUserInformation(@PathVariable String studentnr) {
- 
-        User user = new User();
-        user.setEmail("Jimmy");
-        return user;
+    
+    @RequestMapping("/users")
+    public User getUser() {
+
+       User user = new User();
+       user.setEmail("Jimmy");
+       user.setFirstName("Jimmster");
+       user.setStudentNumber(5923);
+       return user;
     }
+     
 }
