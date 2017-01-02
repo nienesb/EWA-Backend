@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.ewabackend.service.UserService;
+import java.util.List;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -29,13 +30,9 @@ public class AppController {
     UserService userService;
     
     @RequestMapping("/users")
-    public User getUser() {
-
-       User user = new User();
-       user.setEmail("Jimmy");
-       user.setFirstName("Jimmster");
-       user.setStudentNumber(5923);
-       return user;
+    public List<User> getUsers() {
+       List<User> users = userService.findAllUsers();
+       return users;
     }
      
 }
