@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package config;
+package com.ewabackend.config;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;

@@ -1,8 +1,8 @@
-package dao;
+package com.ewabackend.dao;
 
 import java.util.List;
 
-import entity.User;
+import com.ewabackend.entity.User;
 
 public interface UserDAO{
 

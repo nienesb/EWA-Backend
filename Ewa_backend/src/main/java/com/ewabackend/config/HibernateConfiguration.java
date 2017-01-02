@@ -1,4 +1,4 @@
-package config;
+package com.ewabackend.config;
         
 import java.util.Properties;
 

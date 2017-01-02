@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package config;
+package com.ewabackend.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -21,7 +21,7 @@ import org.springframework.web.servlet.view.JstlView;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "controller, entity, service, dao")
+@ComponentScan(basePackages = "com.ewabackend")
 public class appConfig extends WebMvcConfigurerAdapter {
 
     @Bean

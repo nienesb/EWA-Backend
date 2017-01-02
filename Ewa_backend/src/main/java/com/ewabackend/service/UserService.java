@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package service;
+package com.ewabackend.service;
 
 import java.util.List;
 
-import entity.User;
+import com.ewabackend.entity.User;
 
 /**
  *

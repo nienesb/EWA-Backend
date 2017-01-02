@@ -1,4 +1,4 @@
-package dao;
+package com.ewabackend.dao;
 
 import java.util.List;
 import org.hibernate.Criteria;
@@ -6,7 +6,7 @@ import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-import entity.User;
+import com.ewabackend.entity.User;
 
 @Repository("userDao")
 public class UserDAOImplementation extends AbstractDAO<Integer, User> implements UserDAO {

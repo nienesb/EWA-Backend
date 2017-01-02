@@ -1,4 +1,4 @@
-package service;
+package com.ewabackend.service;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import dao.UserDAO;
-import entity.User;
+import com.ewabackend.dao.UserDAO;
+import com.ewabackend.entity.User;
 
 /**
  *

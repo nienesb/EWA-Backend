@@ -1,4 +1,4 @@
-package dao;
+package com.ewabackend.dao;
 
 
 import java.io.Serializable;
