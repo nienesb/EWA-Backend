@@ -14,6 +14,6 @@ public interface UserDAO{
      
     List<User> findAllUsers();
  
-    User findUserByStudentnr(String studentnr);
+    User findUserByStudentnr(Integer studentnr);
 }
 

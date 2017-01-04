@@ -13,7 +13,7 @@ import javax.persistence.NamedQuery;
 
 /**
  *
- * @author ServiceDesk
+ * @author Milan
  */
 
 @Entity(name="ewa_group")

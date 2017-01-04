@@ -10,13 +10,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
  *
- * @author ServiceDesk
+ * @author Milan
  */
 
 @Entity(name="ewa_result")
@@ -26,9 +24,8 @@ public class Result {
     @Column
     private long id;
     
-    @ManyToOne
-    @PrimaryKeyJoinColumn(name="user")
-    private User user;
+    @Column(name="user_id")
+    private Integer userId;
     
     
     @Column
@@ -52,10 +49,13 @@ public class Result {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public Integer getUserId() {
+        return userId;
     }
 
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
     public Timestamp getDate() {
         return date;
     }

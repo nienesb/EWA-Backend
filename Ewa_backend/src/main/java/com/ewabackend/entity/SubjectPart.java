@@ -14,7 +14,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
  *
- * @author ServiceDesk
+ * @author Milan
  */
 
 @Entity(name="ewa_subject_part")

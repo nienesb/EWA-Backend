@@ -26,8 +26,8 @@ public interface UserService {
 
     List findAllUsers();
 
-    User findUserByStudentnr(String studentnr);
+    User findUserByStudentnr(Integer studentnr);
 
-    boolean isUserStudentnrUnique(Integer id, String studentnr);
+    boolean isUserStudentnrUnique(Integer id, Integer studentnr);
 
 }

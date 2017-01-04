@@ -13,7 +13,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 
 /**
  *
- * @author ServiceDesk
+ * @author Milan
  */
 
 @Entity(name="ewa_group_has_subject")

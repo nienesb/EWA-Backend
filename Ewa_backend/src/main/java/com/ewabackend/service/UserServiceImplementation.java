@@ -22,7 +22,6 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public void deleteUserByStudentnr(String studentnr) {
-        // TODO Auto-generated method stub
         dao.deleteUserByStudentnr(studentnr);
     }
 
@@ -54,11 +53,12 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public User findUserByStudentnr(String studentnr) {
+    public User findUserByStudentnr(Integer studentnr) {
         return dao.findUserByStudentnr(studentnr);
     }
 
-    public boolean isUserStudentnrUnique(Integer id, String studentnr) {
+    @Override
+    public boolean isUserStudentnrUnique(Integer id, Integer studentnr) {
         User user = findUserByStudentnr(studentnr);
         return (user == null || ((id != null) && (user.getId() == id)));
     }

@@ -47,9 +47,10 @@ public class UserDAOImplementation extends AbstractDAO<Integer, User> implements
     }
 
     @Override
-    public User findUserByStudentnr(String studentnr) {
+    public User findUserByStudentnr(Integer studentnr) {
         Criteria criteria = createEntityCriteria();
-        criteria.add(Restrictions.eq("studentnr", studentnr));
+        criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+        criteria.add(Restrictions.eq("studentNumber", studentnr));
         return (User) criteria.uniqueResult();
     }
 }
