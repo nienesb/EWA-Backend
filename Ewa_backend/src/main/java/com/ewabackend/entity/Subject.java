@@ -31,8 +31,8 @@ public class Subject {
     @Column 
     private int points;
 
-    @OneToMany(targetEntity=SubjectPart.class, mappedBy="subject", fetch = FetchType.EAGER)
-    private Set<SubjectPart> subjectPart;
+//    @OneToMany(targetEntity=SubjectPart.class, mappedBy="subject", fetch = FetchType.EAGER)
+//    private Set<SubjectPart> subjectPart;
     
    
     public Integer getId() {
@@ -58,14 +58,14 @@ public class Subject {
     public void setPoints(int points) {
         this.points = points;
     }
-
-    public Set<SubjectPart> getSubjectPart() {
-        return subjectPart;
-    }
-
-    public void setSubjectPart(Set<SubjectPart> subjectPart) {
-        this.subjectPart = subjectPart;
-    }
+//
+//    public Set<SubjectPart> getSubjectPart() {
+//        return subjectPart;
+//    }
+//
+//    public void setSubjectPart(Set<SubjectPart> subjectPart) {
+//        this.subjectPart = subjectPart;
+//    }
     
     
     

@@ -35,7 +35,7 @@ public class Result {
     private double Grade;
     
     @ManyToOne
-    @PrimaryKeyJoinColumn(name="subject_part")
+    @PrimaryKeyJoinColumn(name="subject_part_id")
     private SubjectPart subjectPart;
 
     public long getId() {

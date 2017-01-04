@@ -27,9 +27,9 @@ public class SubjectPart {
     @Column
     private String name;
 
-    @ManyToOne
-    @PrimaryKeyJoinColumn(name="parent_subject")
-    private Subject subject;
+//    @ManyToOne
+//    @PrimaryKeyJoinColumn(name="parent_subject")
+//    private Subject subject;
     
     @Column
     private Integer points;
@@ -58,7 +58,7 @@ public class SubjectPart {
         this.points = points;
     }
     
-    public Subject getSubject() {
-        return subject;
-    }
+//    public Subject getSubject() {
+//        return subject;
+//    }
 }
