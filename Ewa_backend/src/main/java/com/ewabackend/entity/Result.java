@@ -32,8 +32,6 @@ public class Result {
     @PrimaryKeyJoinColumn(name="user")
     private User user;
     
-    @Column(name="user")
-    private long userId;
     
     @Column
     private Timestamp date;
@@ -58,14 +56,6 @@ public class Result {
 
     public User getUser() {
         return user;
-    }
-
-    public long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(long userId) {
-        this.userId = userId;
     }
 
     public Timestamp getDate() {

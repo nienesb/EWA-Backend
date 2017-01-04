@@ -26,10 +26,7 @@ public class SubjectPart {
     
     @Column
     private String name;
-    
-    @Column(name="parent_subject")
-    private long parentSubject;
-    
+
     @ManyToOne
     @PrimaryKeyJoinColumn(name="parent_subject")
     private Subject subject;
@@ -51,14 +48,6 @@ public class SubjectPart {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public long getParentSubject() {
-        return parentSubject;
-    }
-
-    public void setParentSubject(long parentSubject) {
-        this.parentSubject = parentSubject;
     }
 
     public int getPoints() {

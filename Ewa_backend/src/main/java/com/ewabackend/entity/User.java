@@ -25,19 +25,20 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="user")
+@NamedQueries({
+    @NamedQuery(name = "User.findAll", query = "SELECT r FROM user r"),
+    @NamedQuery(name = "User.findByStudentnr", query = "SELECT r FROM user r WHERE r.studentnr = :studentnr")
+})
 public class User implements Serializable{
     
-    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Id
     @Column()
     private int id;
     
     @Column()
     private String email;
     
-    @Column(name="group_id")
-    private Integer groupId;
-    
-    @ManyToOne
+    @ManyToOne()
     @PrimaryKeyJoinColumn(name="group_id")
     private Group group;
     
@@ -110,14 +111,6 @@ public class User implements Serializable{
         this.email = email;
     }
 
-    public Integer getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(Integer groupId) {
-        this.groupId = groupId;
-    }
-    
     
 
 }

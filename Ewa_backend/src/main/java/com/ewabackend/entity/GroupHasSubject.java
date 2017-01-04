@@ -23,15 +23,9 @@ public class GroupHasSubject {
     @Column
     private long id;
     
-    @Column(name="group_id")
-    private long groupId;
-    
     @ManyToOne
     @PrimaryKeyJoinColumn(name="group_id")
     private Group group;
-    
-    @Column(name="subject_id")
-    private long subjectId;
     
     @ManyToOne
     @PrimaryKeyJoinColumn(name="subject_id")
@@ -55,20 +49,8 @@ public class GroupHasSubject {
         this.id = id;
     }
 
-    public long getGroupId() {
-        return groupId;
-    }
-
     public Group getGroup() {
         return group;
-    }
-
-    public long getSubjectId() {
-        return subjectId;
-    }
-
-    public void setSubjectId(long subjectId) {
-        this.subjectId = subjectId;
     }
 
     public Subject getSubject() {

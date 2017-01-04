@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.ewabackend.service.UserService;
 import java.util.List;
+import javax.ws.rs.PathParam;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -33,6 +34,12 @@ public class AppController {
     public List<User> getUsers() {
        List<User> users = userService.findAllUsers();
        return users;
+    }
+    
+    @RequestMapping("/user/{studentnr}")
+    public User getUserByStudentnr(@PathParam("studentnr") String studentnr) {
+        User user = userService.findUserByStudentnr(studentnr);
+        return user;
     }
      
 }
