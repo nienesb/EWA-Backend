@@ -16,9 +16,7 @@ import javax.persistence.NamedQuery;
  * @author ServiceDesk
  */
 
-@Entity(name="group")
-@NamedQueries({
-    @NamedQuery(name="group_getGroups", query="SELECT r FROM group r ORDER BY r.id")})
+@Entity(name="ewa_group")
 public class Group {
     
     @Id

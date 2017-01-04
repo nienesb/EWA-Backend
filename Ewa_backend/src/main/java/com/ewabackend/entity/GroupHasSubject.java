@@ -16,7 +16,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
  * @author ServiceDesk
  */
 
-@Entity(name="group_has_subject")
+@Entity(name="ewa_group_has_subject")
 public class GroupHasSubject {
     
     @Id

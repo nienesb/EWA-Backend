@@ -24,16 +24,12 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name="user")
-@NamedQueries({
-    @NamedQuery(name = "User.findAll", query = "SELECT r FROM user r"),
-    @NamedQuery(name = "User.findByStudentnr", query = "SELECT r FROM user r WHERE r.studentnr = :studentnr")
-})
+@Table(name="ewa_user")
 public class User implements Serializable{
     
     @Id
     @Column()
-    private int id;
+    private Integer id;
     
     @Column()
     private String email;
@@ -43,7 +39,7 @@ public class User implements Serializable{
     private Group group;
     
     @Column(name="studentnr")
-    private int studentNumber;
+    private Integer studentNumber;
     
     @Column(name="is_teacher")
     private Boolean isTeacher;
@@ -62,11 +58,11 @@ public class User implements Serializable{
         this.group = group;
     }
 
-    public int getStudentNumber() {
+    public Integer getStudentNumber() {
         return studentNumber;
     }
 
-    public void setStudentNumber(int studentNumber) {
+    public void setStudentNumber(Integer studentNumber) {
         this.studentNumber = studentNumber;
     }
 
@@ -99,7 +95,7 @@ public class User implements Serializable{
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

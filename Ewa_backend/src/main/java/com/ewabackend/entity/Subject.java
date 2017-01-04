@@ -18,12 +18,12 @@ import javax.persistence.OneToMany;
  * @author ServiceDesk
  */
 
-@Entity(name="subject")
+@Entity(name="ewa_subject")
 public class Subject {
         
     @Id
     @Column
-    private long id;
+    private Integer id;
     
     @Column
     private String name;
@@ -35,11 +35,11 @@ public class Subject {
     private Set<SubjectPart> subjectPart;
     
    
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -19,9 +19,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
  * @author ServiceDesk
  */
 
-@Entity(name="result")
-@NamedQueries({
-    @NamedQuery(name="Result.getResultsForUser", query="SELECT r FROM result r WHERE r.userId = :userId ORDER BY r.date desc")})
+@Entity(name="ewa_result")
 public class Result {
  
     @Id

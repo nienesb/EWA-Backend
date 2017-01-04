@@ -17,12 +17,12 @@ import javax.persistence.PrimaryKeyJoinColumn;
  * @author ServiceDesk
  */
 
-@Entity(name="subject_part")
+@Entity(name="ewa_subject_part")
 public class SubjectPart {
    
     @Id
     @Column
-    private long id;
+    private Integer id;
     
     @Column
     private String name;
@@ -32,13 +32,13 @@ public class SubjectPart {
     private Subject subject;
     
     @Column
-    private int points;
+    private Integer points;
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
