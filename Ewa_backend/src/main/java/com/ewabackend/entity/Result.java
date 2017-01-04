@@ -32,7 +32,10 @@ public class Result {
     private Timestamp date;
     
     @Column
-    private double Grade;
+    private double grade;
+    
+    @Column (name="subject_part_id")
+    private Integer SubjectPartId;
     
     @ManyToOne
     @PrimaryKeyJoinColumn(name="subject_part_id")
@@ -62,11 +65,11 @@ public class Result {
     }
 
     public double getGrade() {
-        return Grade;
+        return grade;
     }
 
     public void setGrade(double Grade) {
-        this.Grade = Grade;
+        this.grade = Grade;
     }
 
     public SubjectPart getSubjectPart() {
