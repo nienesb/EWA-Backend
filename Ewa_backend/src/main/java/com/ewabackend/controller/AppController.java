@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.ewabackend.service.UserService;
-import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 import java.util.List;
 import javax.ws.rs.PathParam;
 import org.springframework.ui.Model;
@@ -52,16 +51,12 @@ public class AppController {
     @RequestMapping("results/{studentnr}")
     public List<Result> getResultsByStudentnr(@PathVariable Integer studentnr) {
        User user = userService.findUserByStudentnr(studentnr);
+       if(user == null) {
+           return null;
+       }
        List<Result> results = resultService.findResultsForUser(user.getId());
        return results;
     }
-    
-    @RequestMapping("test/{id}")
-    public String test(@PathVariable Integer id) {
-       if(id != null) {
-           return "Yes";
-       }
-       else return "Null";
-    }
+  
      
 }

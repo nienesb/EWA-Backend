@@ -34,9 +34,6 @@ public class Result {
     @Column
     private double Grade;
     
-    @Column(name="subject_part")
-    private long subjectPartId;
-    
     @ManyToOne
     @PrimaryKeyJoinColumn(name="subject_part")
     private SubjectPart subjectPart;
@@ -70,14 +67,6 @@ public class Result {
 
     public void setGrade(double Grade) {
         this.Grade = Grade;
-    }
-
-    public long getSubjectPartId() {
-        return subjectPartId;
-    }
-
-    public void setSubjectPartId(long subjectPartId) {
-        this.subjectPartId = subjectPartId;
     }
 
     public SubjectPart getSubjectPart() {
