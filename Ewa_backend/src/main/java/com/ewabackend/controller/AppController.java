@@ -57,14 +57,14 @@ public class AppController {
         return results;
     }
 
-    @RequestMapping("/results/{studentnr}/{subjectPartId}")
-    public List<Result> getResultsForSubjectByStudentnr(@PathVariable Integer studentnr) {
+    @RequestMapping("/result/{studentnr}/{subjectPartId}")
+    public Result getResultsForSubjectByStudentnr(@PathVariable("studentnr") Integer studentnr, @PathVariable("subjectPartId") Integer subjectPartId) {
         User user = userService.findUserByStudentnr(studentnr);
         if (user == null) {
             return null;
         }
-        List<Result> results = resultService.findResultsForUser(user.getId());
-        return results;
+        Result result = resultService.findResultForUser(studentnr, subjectPartId);
+        return result;
     }
 
     @RequestMapping("/subjects")

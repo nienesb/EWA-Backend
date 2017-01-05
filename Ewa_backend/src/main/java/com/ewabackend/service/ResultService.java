@@ -25,5 +25,7 @@ public interface ResultService {
     List findAllResults();
 
     List<Result> findResultsForUser(Integer userId);
+    
+    Result findResultForUser(Integer userId, Integer subjectPart);
 
 }

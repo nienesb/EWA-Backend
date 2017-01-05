@@ -32,6 +32,9 @@ public class Result {
     @Column
     private double grade;
 
+    @Column(name = " subjectpart_id", insertable=false, updatable=false)
+    private Integer subjectPartId;
+    
     @ManyToOne
     @PrimaryKeyJoinColumn(name = "subjectpart_id")
     private SubjectPart subjectPart;
@@ -76,4 +79,13 @@ public class Result {
         this.subjectPart = subjectPart;
     }
 
+    public Integer getSubjectPartId() {
+        return subjectPartId;
+    }
+
+    public void setSubjectPartId(Integer subjectPartId) {
+        this.subjectPartId = subjectPartId;
+    }
+
+    
 }

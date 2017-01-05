@@ -16,4 +16,6 @@ public interface ResultDAO {
     List<Result> findAllResults();
  
     List<Result> findResultByUser(Integer userId);
+    
+    Result findResultForUser(Integer userId, Integer subjectPart);
 }

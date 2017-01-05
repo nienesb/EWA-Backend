@@ -48,5 +48,10 @@ public class ResultServiceImplementation implements ResultService {
     public List<Result> findResultsForUser(Integer userId) {
         return dao.findResultByUser(userId);
     }
+
+    @Override
+    public Result findResultForUser(Integer userId, Integer subjectPart) {
+        return dao.findResultForUser(userId, subjectPart);
+    }
     
 }
