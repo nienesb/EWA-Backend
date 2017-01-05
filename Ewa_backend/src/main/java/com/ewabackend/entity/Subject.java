@@ -31,7 +31,7 @@ public class Subject {
     @Column 
     private int points;
 
-    @OneToMany(targetEntity=SubjectPart.class, mappedBy="subject", fetch = FetchType.EAGER)
+    @OneToMany(targetEntity=SubjectPart.class, mappedBy="parentSubject", fetch = FetchType.EAGER)
     private Set<SubjectPart> subjectPart;
     
    

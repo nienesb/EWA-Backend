@@ -28,8 +28,8 @@ public class SubjectPart {
     private String name;
 
     @ManyToOne
-    @PrimaryKeyJoinColumn(name="parent_subject_id")
-    private Subject subject;
+    @PrimaryKeyJoinColumn(name="parentsubject_id")
+    private Subject parentSubject;
     
     @Column
     private Integer points;
@@ -50,15 +50,17 @@ public class SubjectPart {
         this.name = name;
     }
 
-    public int getPoints() {
+    public void setParentSubject(Subject parentSubject) {
+        this.parentSubject = parentSubject;
+    }
+
+    public Integer getPoints() {
         return points;
     }
 
-    public void setPoints(int points) {
+    public void setPoints(Integer points) {
         this.points = points;
     }
+
     
-    public Subject getSubject() {
-        return subject;
-    }
 }

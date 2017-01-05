@@ -6,20 +6,17 @@
 package com.ewabackend.controller;
 
 import com.ewabackend.entity.Result;
+import com.ewabackend.entity.Subject;
 import com.ewabackend.entity.User;
 import com.ewabackend.service.ResultService;
+import com.ewabackend.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.ewabackend.service.UserService;
 import java.util.List;
-import javax.ws.rs.PathParam;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  *
@@ -36,6 +33,9 @@ public class AppController {
     @Autowired
     ResultService resultService;
     
+    @Autowired
+    SubjectService subjectService;
+    
     @RequestMapping("/users")
     public List<User> getUsers() {
        List<User> users = userService.findAllUsers();
@@ -48,7 +48,7 @@ public class AppController {
         return user;
     }
     
-    @RequestMapping("results/{studentnr}")
+    @RequestMapping("/results/{studentnr}")
     public List<Result> getResultsByStudentnr(@PathVariable Integer studentnr) {
        User user = userService.findUserByStudentnr(studentnr);
        if(user == null) {
@@ -56,6 +56,13 @@ public class AppController {
        }
        List<Result> results = resultService.findResultsForUser(user.getId());
        return results;
+    }
+  
+        
+    @RequestMapping("/subjects")
+    public List<Subject> getAllSubjects() {
+       List<Subject> subjects = subjectService.findAllSubjects();
+       return subjects;
     }
   
      

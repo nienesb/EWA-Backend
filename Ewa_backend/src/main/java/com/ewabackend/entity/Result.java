@@ -33,15 +33,10 @@ public class Result {
     
     @Column
     private double grade;
-
- 
     
-    @Column (name="subject_part_id")
-    private Integer SubjectPartId;
-    
-//    @ManyToOne
-//    @PrimaryKeyJoinColumn(name="subject_part_id")
-//    private SubjectPart subjectPart;
+    @ManyToOne
+    @PrimaryKeyJoinColumn(name="subjectpart_id")
+    private SubjectPart subjectPart;
 
     public long getId() {
         return id;
@@ -73,16 +68,13 @@ public class Result {
     public void setGrade(double Grade) {
         this.grade = Grade;
     }
-//
-//    public SubjectPart getSubjectPart() {
-//        return subjectPart;
-//    }  
-    
-      public Integer getSubjectPartId() {
-        return SubjectPartId;
-    }
 
-    public void setSubjectPartId(Integer SubjectPartId) {
-        this.SubjectPartId = SubjectPartId;
+    public SubjectPart getSubjectPart() {
+        return subjectPart;
+    }  
+
+    public void setSubjectPart(SubjectPart subjectPart) {
+        this.subjectPart = subjectPart;
     }
+    
 }

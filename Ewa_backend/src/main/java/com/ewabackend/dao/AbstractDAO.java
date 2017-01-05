@@ -10,6 +10,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+
+/**
+ *
+ * @author Milan
+ */
 public abstract class AbstractDAO<PK extends Serializable, T> {
 	
 	private final Class<T> persistentClass;

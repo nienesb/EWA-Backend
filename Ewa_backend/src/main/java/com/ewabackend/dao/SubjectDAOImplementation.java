@@ -9,11 +9,13 @@ import com.ewabackend.entity.Subject;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author Milan
  */
+@Repository("subjectDAO")
 public class SubjectDAOImplementation extends AbstractDAO<Integer, Subject> implements SubjectDAO {
 
     @Override
