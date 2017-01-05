@@ -25,45 +25,52 @@ import java.util.List;
 @RestController
 @ComponentScan("com.ewabackend.service")
 public class AppController {
-    
-    
+
     @Autowired
     UserService userService;
-    
+
     @Autowired
     ResultService resultService;
-    
+
     @Autowired
     SubjectService subjectService;
-    
+
     @RequestMapping("/users")
     public List<User> getUsers() {
-       List<User> users = userService.findAllUsers();
-       return users;
+        List<User> users = userService.findAllUsers();
+        return users;
     }
-    
+
     @RequestMapping("/user/{studentnr}")
     public User getUserByStudentnr(@PathVariable Integer studentnr) {
         User user = userService.findUserByStudentnr(studentnr);
         return user;
     }
-    
+
     @RequestMapping("/results/{studentnr}")
     public List<Result> getResultsByStudentnr(@PathVariable Integer studentnr) {
-       User user = userService.findUserByStudentnr(studentnr);
-       if(user == null) {
-           return null;
-       }
-       List<Result> results = resultService.findResultsForUser(user.getId());
-       return results;
+        User user = userService.findUserByStudentnr(studentnr);
+        if (user == null) {
+            return null;
+        }
+        List<Result> results = resultService.findResultsForUser(user.getId());
+        return results;
     }
-  
-        
+
+    @RequestMapping("/results/{studentnr}/{subjectPartId}")
+    public List<Result> getResultsForSubjectByStudentnr(@PathVariable Integer studentnr) {
+        User user = userService.findUserByStudentnr(studentnr);
+        if (user == null) {
+            return null;
+        }
+        List<Result> results = resultService.findResultsForUser(user.getId());
+        return results;
+    }
+
     @RequestMapping("/subjects")
     public List<Subject> getAllSubjects() {
-       List<Subject> subjects = subjectService.findAllSubjects();
-       return subjects;
+        List<Subject> subjects = subjectService.findAllSubjects();
+        return subjects;
     }
-  
-     
+
 }

@@ -16,26 +16,24 @@ import javax.persistence.PrimaryKeyJoinColumn;
  *
  * @author Milan
  */
-
-@Entity(name="ewa_result")
+@Entity(name = "ewa_result")
 public class Result {
- 
+
     @Id
     @Column
     private long id;
-    
-    @Column(name="user_id")
+
+    @Column(name = "user_id")
     private Integer userId;
-    
-    
+
     @Column
     private Timestamp date;
-    
+
     @Column
     private double grade;
-    
+
     @ManyToOne
-    @PrimaryKeyJoinColumn(name="subjectpart_id")
+    @PrimaryKeyJoinColumn(name = "subjectpart_id")
     private SubjectPart subjectPart;
 
     public long getId() {
@@ -53,6 +51,7 @@ public class Result {
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
+
     public Timestamp getDate() {
         return date;
     }
@@ -71,10 +70,10 @@ public class Result {
 
     public SubjectPart getSubjectPart() {
         return subjectPart;
-    }  
+    }
 
     public void setSubjectPart(SubjectPart subjectPart) {
         this.subjectPart = subjectPart;
     }
-    
+
 }
