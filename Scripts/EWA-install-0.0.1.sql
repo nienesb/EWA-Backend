@@ -18,7 +18,7 @@ USE `ewa`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `group`
+-- Table structure for table `ewa_group`
 --
 
 DROP TABLE IF EXISTS `ewa_group`;
@@ -33,17 +33,17 @@ CREATE TABLE `ewa_group` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `group`
+-- Dumping data for table `ewa_group`
 --
 
 LOCK TABLES `ewa_group` WRITE;
-/*!40000 ALTER TABLE `group` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ewa_group` DISABLE KEYS */;
 INSERT INTO `ewa_group` VALUES (1,'ID2S01','2'),(2,'ID2S02','2');
-/*!40000 ALTER TABLE `group` ENABLE KEYS */;
+/*!40000 ALTER TABLE `ewa_group` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `group_has_subject`
+-- Table structure for table `ewa_group_has_subject`
 --
 
 DROP TABLE IF EXISTS `ewa_group_has_subject`;
@@ -61,17 +61,17 @@ CREATE TABLE `ewa_group_has_subject` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `group_has_subject`
+-- Dumping data for table `ewa_group_has_subject`
 --
 
 LOCK TABLES `ewa_group_has_subject` WRITE;
-/*!40000 ALTER TABLE `group_has_subject` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ewa_group_has_subject` DISABLE KEYS */;
 INSERT INTO `ewa_group_has_subject` VALUES (1,1,1,1,2,2),(1,2,2,NULL,2,2);
-/*!40000 ALTER TABLE `group_has_subject` ENABLE KEYS */;
+/*!40000 ALTER TABLE `ewa_group_has_subject` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `result`
+-- Table structure for table `ewa_result`
 --
 
 DROP TABLE IF EXISTS `ewa_result`;
@@ -79,25 +79,27 @@ DROP TABLE IF EXISTS `ewa_result`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ewa_result` (
   `id` int(11) NOT NULL,
-  `user` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
   `date` timestamp NULL DEFAULT NULL,
   `grade` double DEFAULT NULL,
-  `subject_part` int(11) DEFAULT NULL,
+  `subjectpart_id` int(11) DEFAULT NULL,
+  `subject_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `result`
+-- Dumping data for table `ewa_result`
 --
 
 LOCK TABLES `ewa_result` WRITE;
-/*!40000 ALTER TABLE `result` DISABLE KEYS */;
-/*!40000 ALTER TABLE `result` ENABLE KEYS */;
+/*!40000 ALTER TABLE `ewa_result` DISABLE KEYS */;
+INSERT INTO `ewa_result` VALUES (1,1,'2017-01-02 14:00:00',8.5,1,NULL),(2,1,'2017-01-02 14:00:00',6.3,2,NULL),(3,1,'2017-01-02 14:00:00',7.2,3,NULL),(4,1,'2017-01-02 14:00:00',7.2,4,NULL);
+/*!40000 ALTER TABLE `ewa_result` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `subject`
+-- Table structure for table `ewa_subject`
 --
 
 DROP TABLE IF EXISTS `ewa_subject`;
@@ -112,17 +114,17 @@ CREATE TABLE `ewa_subject` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `subject`
+-- Dumping data for table `ewa_subject`
 --
 
 LOCK TABLES `ewa_subject` WRITE;
-/*!40000 ALTER TABLE `subject` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ewa_subject` DISABLE KEYS */;
 INSERT INTO `ewa_subject` VALUES (1,'Essential Skills','9'),(2,'Prof Skills Adviesvaardigheden','3');
-/*!40000 ALTER TABLE `subject` ENABLE KEYS */;
+/*!40000 ALTER TABLE `ewa_subject` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `subject_part`
+-- Table structure for table `ewa_subject_part`
 --
 
 DROP TABLE IF EXISTS `ewa_subject_part`;
@@ -131,24 +133,24 @@ DROP TABLE IF EXISTS `ewa_subject_part`;
 CREATE TABLE `ewa_subject_part` (
   `id` int(11) NOT NULL,
   `name` varchar(45) DEFAULT NULL,
-  `parent_subect` int(11) DEFAULT NULL,
+  `parentsubject_id` int(11) DEFAULT NULL,
   `points` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `subject_part`
+-- Dumping data for table `ewa_subject_part`
 --
 
 LOCK TABLES `ewa_subject_part` WRITE;
-/*!40000 ALTER TABLE `subject_part` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ewa_subject_part` DISABLE KEYS */;
 INSERT INTO `ewa_subject_part` VALUES (1,'Mathematics',1,3),(2,'Nederlands',1,3),(3,'Engels',1,3),(4,'Casus',2,3);
-/*!40000 ALTER TABLE `subject_part` ENABLE KEYS */;
+/*!40000 ALTER TABLE `ewa_subject_part` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `user`
+-- Table structure for table `ewa_user`
 --
 
 DROP TABLE IF EXISTS `ewa_user`;
@@ -167,13 +169,13 @@ CREATE TABLE `ewa_user` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `ewa_user`
 --
 
 LOCK TABLES `ewa_user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ewa_user` DISABLE KEYS */;
 INSERT INTO `ewa_user` VALUES (1,'milanosie@live.nl',1,533677,0,'Steenwinkel','Milan'),(2,'docent1@hva.nl',NULL,NULL,1,'Docent','Jan');
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+/*!40000 ALTER TABLE `ewa_user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -185,4 +187,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-02 10:45:27
+-- Dump completed on 2017-01-06 13:20:20
