@@ -28,6 +28,8 @@ public interface UserService {
 
     User findUserByStudentnr(Integer studentnr);
 
+    User findUserByEmail(String email);
+    
     boolean isUserStudentnrUnique(Integer id, Integer studentnr);
 
 }

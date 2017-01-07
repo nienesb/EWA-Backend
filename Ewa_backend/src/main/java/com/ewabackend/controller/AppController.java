@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.ewabackend.service.UserService;
 import java.util.List;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -47,6 +48,12 @@ public class AppController {
         return user;
     }
 
+    @RequestMapping("/user")
+    public User getUserByEmail(@RequestParam("email") String email) {
+        User user = userService.findUserByEmail(email);
+        return user;
+    }
+    
     @RequestMapping("/results/{studentnr}")
     public List<Result> getResultsByStudentnr(@PathVariable Integer studentnr) {
         User user = userService.findUserByStudentnr(studentnr);
@@ -73,4 +80,5 @@ public class AppController {
         return subjects;
     }
 
+    
 }
