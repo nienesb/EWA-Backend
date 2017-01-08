@@ -7,8 +7,10 @@ package com.ewabackend.controller;
 
 import com.ewabackend.entity.Result;
 import com.ewabackend.entity.Subject;
+import com.ewabackend.entity.SubjectPart;
 import com.ewabackend.entity.User;
 import com.ewabackend.service.ResultService;
+import com.ewabackend.service.SubjectPartService;
 import com.ewabackend.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -36,6 +38,9 @@ public class AppController {
     @Autowired
     SubjectService subjectService;
 
+    @Autowired
+    SubjectPartService subjectPartService;
+
     @RequestMapping("/users")
     public List<User> getUsers() {
         List<User> users = userService.findAllUsers();
@@ -53,7 +58,7 @@ public class AppController {
         User user = userService.findUserByEmail(email);
         return user;
     }
-    
+
     @RequestMapping("/results/{studentnr}")
     public List<Result> getResultsByStudentnr(@PathVariable Integer studentnr) {
         User user = userService.findUserByStudentnr(studentnr);
@@ -79,7 +84,11 @@ public class AppController {
         List<Subject> subjects = subjectService.findAllSubjects();
         return subjects;
     }
-    
 
-    
+    @RequestMapping("/subjectparts")
+    public List<SubjectPart> getAllSubjectParts() {
+        List<SubjectPart> subjectParts = subjectPartService.findAllSubjectParts();
+        return subjectParts;
+    }
+
 }
