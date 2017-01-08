@@ -70,7 +70,7 @@ public class AppController {
         if (user == null) {
             return null;
         }
-        Result result = resultService.findResultForUser(studentnr, subjectPartId);
+        Result result = resultService.findResultForUser(user.getId(), subjectPartId);
         return result;
     }
 
@@ -79,6 +79,7 @@ public class AppController {
         List<Subject> subjects = subjectService.findAllSubjects();
         return subjects;
     }
+    
 
     
 }

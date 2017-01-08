@@ -50,8 +50,8 @@ public class ResultServiceImplementation implements ResultService {
     }
 
     @Override
-    public Result findResultForUser(Integer userId, Integer subjectPart) {
-        return dao.findResultForUser(userId, subjectPart);
+    public Result findResultForUser(Integer userId, Integer subjectPartId) {
+        return dao.findResultForUser(userId, subjectPartId);
     }
     
 }
