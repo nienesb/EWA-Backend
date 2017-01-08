@@ -5,10 +5,12 @@
  */
 package com.ewabackend.controller;
 
+import com.ewabackend.entity.Group;
 import com.ewabackend.entity.Result;
 import com.ewabackend.entity.Subject;
 import com.ewabackend.entity.SubjectPart;
 import com.ewabackend.entity.User;
+import com.ewabackend.service.GroupService;
 import com.ewabackend.service.ResultService;
 import com.ewabackend.service.SubjectPartService;
 import com.ewabackend.service.SubjectService;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.ewabackend.service.UserService;
 import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -31,7 +34,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @CrossOrigin
 public class AppController {
 
-    
     @Autowired
     UserService userService;
 
@@ -44,7 +46,9 @@ public class AppController {
     @Autowired
     SubjectPartService subjectPartService;
 
-    
+    @Autowired
+    GroupService groupService;
+
     @RequestMapping("/users")
     public List<User> getUsers() {
         List<User> users = userService.findAllUsers();
@@ -95,4 +99,16 @@ public class AppController {
         return subjectParts;
     }
 
+    @RequestMapping("/schedule/{groupName}")
+    public Group getGroupByName(@PathVariable String groupName) {
+        Group group = groupService.findByName(groupName);
+        return group;
+    }
+    
+    @RequestMapping("/groups")
+    public List<Group> getGroups() {
+        return groupService.findAllGroups();
+    }
+
+ 
 }

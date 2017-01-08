@@ -5,12 +5,14 @@
  */
 package com.ewabackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Transient;
 
 /**
  *
@@ -42,8 +44,8 @@ public class GroupHasSubject {
     @PrimaryKeyJoinColumn(name="teacher")
     private User teacher;
 
-    @Column(name="exam_date")
-    private Timestamp examDate;
+//    @Column(name="exam_date")
+//    private Timestamp examDate;
     
     public long getId() {
         return id;
@@ -52,11 +54,12 @@ public class GroupHasSubject {
     public void setId(long id) {
         this.id = id;
     }
-
-    public Group getGroup() {
-        return group;
+    
+    public void setGroup(Group group) {
+        this.group = group;
     }
 
+   
     public Subject getSubject() {
         return subject;
     }
@@ -88,6 +91,8 @@ public class GroupHasSubject {
     public void setTeacher(User teacher) {
         this.teacher = teacher;
     }
+
+    
     
     
 }

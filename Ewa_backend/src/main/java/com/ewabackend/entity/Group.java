@@ -5,11 +5,14 @@
  */
 package com.ewabackend.entity;
 
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -28,6 +31,9 @@ public class Group {
     
     @Column()
     private int year;
+    
+    @OneToMany(targetEntity=GroupHasSubject.class, mappedBy="group", fetch = FetchType.EAGER)
+    private Set<GroupHasSubject> subjects;
 
     public long getId() {
         return id;
@@ -52,4 +58,10 @@ public class Group {
     public void setYear(int year) {
         this.year = year;
     }
+
+    public Set<GroupHasSubject> getSubjects() {
+        return subjects;
+    }
+    
+    
 }

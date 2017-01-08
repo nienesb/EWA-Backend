@@ -9,11 +9,13 @@ import com.ewabackend.dao.SubjectPartDAO;
 import com.ewabackend.entity.SubjectPart;
 import java.util.List;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author Milan
  */
+@Transactional
 @Service("subjectPartService")
 public class SubjectPartServiceImplementation implements SubjectPartService {
 
