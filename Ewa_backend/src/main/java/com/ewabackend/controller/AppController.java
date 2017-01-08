@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @RestController
 @ComponentScan("com.ewabackend.service")
-@CrossOrigin(maxAge = 36000)
+@CrossOrigin
 public class AppController {
 
     
@@ -44,6 +44,7 @@ public class AppController {
     @Autowired
     SubjectPartService subjectPartService;
 
+    
     @RequestMapping("/users")
     public List<User> getUsers() {
         List<User> users = userService.findAllUsers();

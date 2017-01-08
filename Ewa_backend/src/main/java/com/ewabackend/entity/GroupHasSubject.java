@@ -5,6 +5,7 @@
  */
 package com.ewabackend.entity;
 
+import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -41,6 +42,9 @@ public class GroupHasSubject {
     @PrimaryKeyJoinColumn(name="teacher")
     private User teacher;
 
+    @Column(name="exam_date")
+    private Timestamp examDate;
+    
     public long getId() {
         return id;
     }
