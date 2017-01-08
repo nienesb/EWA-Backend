@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.ewabackend.service.UserService;
 import java.util.List;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -27,8 +28,10 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @RestController
 @ComponentScan("com.ewabackend.service")
+@CrossOrigin(maxAge = 36000)
 public class AppController {
 
+    
     @Autowired
     UserService userService;
 
