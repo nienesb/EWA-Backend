@@ -43,8 +43,8 @@ public class GroupHasSubject {
     @PrimaryKeyJoinColumn(name="teacher")
     private User teacher;
 
-//    @Column(name="exam_date")
-//    private Timestamp examDate;
+    @Column(name="exam_date")
+    private Timestamp examDate;
     
     public long getId() {
         return id;
@@ -89,6 +89,14 @@ public class GroupHasSubject {
 
     public void setTeacher(User teacher) {
         this.teacher = teacher;
+    }
+
+    public Timestamp getExamDate() {
+        return examDate;
+    }
+
+    public void setExamDate(Timestamp examDate) {
+        this.examDate = examDate;
     }
 
     
