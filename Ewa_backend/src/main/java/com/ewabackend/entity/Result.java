@@ -39,6 +39,9 @@ public class Result {
     @PrimaryKeyJoinColumn(name = "subjectpart_id")
     private SubjectPart subjectPart;
 
+    @Column
+    private Integer block;
+    
     public long getId() {
         return id;
     }
@@ -85,6 +88,14 @@ public class Result {
 
     public void setSubjectPartId(Integer subjectPartId) {
         this.subjectPartId = subjectPartId;
+    }
+
+    public Integer getBlock() {
+        return block;
+    }
+
+    public void setBlock(Integer block) {
+        this.block = block;
     }
 
     

@@ -77,6 +77,16 @@ public class AppController {
         return results;
     }
 
+    @RequestMapping("/results/{studentnr}/{block}")
+    public List<Result> getResultsByStudentnrForBlock(@PathVariable("studentnr") Integer studentnr, @PathVariable("block") Integer block) {
+        User user = userService.findUserByStudentnr(studentnr);
+        if (user == null) {
+            return null;
+        }
+        List<Result> results = resultService.findResultsForUserWithBlock(user.getId(), block);
+        return results;
+    }
+
     @RequestMapping("/result/{studentnr}/{subjectPartId}")
     public Result getResultsForSubjectByStudentnr(@PathVariable("studentnr") Integer studentnr, @PathVariable("subjectPartId") Integer subjectPartId) {
         User user = userService.findUserByStudentnr(studentnr);
@@ -104,11 +114,10 @@ public class AppController {
         Group group = groupService.findByName(groupName);
         return group;
     }
-    
+
     @RequestMapping("/groups")
     public List<Group> getGroups() {
         return groupService.findAllGroups();
     }
 
- 
 }

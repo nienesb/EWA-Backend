@@ -52,4 +52,12 @@ public class ResultDAOImplementation extends AbstractDAO<Integer, Result> implem
         criteria.add(Restrictions.eq("subjectPartId", subjectPart));
         return (Result) criteria.uniqueResult();
     }
+
+    @Override
+    public List<Result> findResultsForUserWithBlock(Integer userId, Integer blockId) {
+        Criteria criteria = createEntityCriteria();
+        criteria.add(Restrictions.eq("userId", userId));
+        criteria.add(Restrictions.eq("block", blockId));
+        return (List<Result>) criteria.list();
+    }
 }
