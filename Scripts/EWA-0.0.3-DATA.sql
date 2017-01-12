@@ -1,0 +1,12 @@
+UPDATE `ewa`.`ewa_result` SET `block`='1' WHERE `id`='1';
+UPDATE `ewa`.`ewa_result` SET `block`='1' WHERE `id`='2';
+UPDATE `ewa`.`ewa_result` SET `block`='1' WHERE `id`='3';
+UPDATE `ewa`.`ewa_result` SET `block`='2' WHERE `id`='4';
+UPDATE `ewa`.`ewa_result` SET `block`='1' WHERE `id`='5';
+UPDATE `ewa`.`ewa_result` SET `block`='1' WHERE `id`='6';
+UPDATE `ewa`.`ewa_result` SET `block`='1' WHERE `id`='7';
+UPDATE `ewa`.`ewa_result` SET `block`='2' WHERE `id`='8';
+UPDATE `ewa`.`ewa_result` SET `block`='1' WHERE `id`='9';
+UPDATE `ewa`.`ewa_result` SET `block`='1' WHERE `id`='10';
+UPDATE `ewa`.`ewa_result` SET `block`='1' WHERE `id`='11';
+UPDATE `ewa`.`ewa_result` SET `block`='2' WHERE `id`='12';
