@@ -11,7 +11,7 @@ import java.util.List;
 public interface ResultDAO {
     Result findById(int id);
 	 
-    void saveResult(Result result);
+    Integer saveResult(Result result);
      
     List<Result> findAllResults();
  

@@ -133,8 +133,20 @@ public class AppController {
     }
 
     @RequestMapping(value="/admin/subject", method=RequestMethod.POST)
-    public String createSubject(@RequestBody Subject subject) {
-        subjectService.saveSubject(subject);
-        return "Het is gelukt nigga";
+    public Subject createSubject(@RequestBody Subject subject) {
+        Integer id = subjectService.saveSubject(subject);
+        return subjectService.findById(id);
+    }
+    
+    @RequestMapping(value="/admin/subjectpart", method=RequestMethod.POST)
+    public SubjectPart createSubject(@RequestBody SubjectPart subjectPart) {
+        Integer id = subjectPartService.saveSubjectPart(subjectPart);
+        return subjectPartService.findById(id);
+    }
+    
+    @RequestMapping(value="/teacher/grade", method=RequestMethod.POST)
+    public Result createResultForUser(@RequestBody Result result) {
+        Integer id = resultService.saveResult(result);
+        return resultService.findById(id);
     }
 }

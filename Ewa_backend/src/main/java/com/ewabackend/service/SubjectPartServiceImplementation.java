@@ -27,8 +27,8 @@ public class SubjectPartServiceImplementation implements SubjectPartService {
     }
 
     @Override
-    public void saveSubjectPart(SubjectPart subjectPart) {
-      dao.saveSubjectPart(subjectPart);
+    public Integer saveSubjectPart(SubjectPart subjectPart) {
+      return dao.saveSubjectPart(subjectPart);
     }
 
     @Override

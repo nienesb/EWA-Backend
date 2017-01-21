@@ -25,8 +25,9 @@ public class SubjectPartDAOImplementation extends AbstractDAO<Integer, SubjectPa
     }
 
     @Override
-    public void saveSubjectPart(SubjectPart subjectPart) {
+    public Integer saveSubjectPart(SubjectPart subjectPart) {
         persist(subjectPart);
+        return subjectPart.getId();
     }
 
     @Override

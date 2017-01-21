@@ -7,6 +7,8 @@ package com.ewabackend.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,6 +23,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 public class SubjectPart {
    
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column
     private Integer id;
     
@@ -30,6 +33,9 @@ public class SubjectPart {
     @ManyToOne
     @PrimaryKeyJoinColumn(name="parentsubject_id")
     private Subject parentSubject;
+
+    @Column(name="parentsubject_id")
+    private Integer parentSubjectId;
     
     @Column
     private Integer points;
@@ -60,6 +66,14 @@ public class SubjectPart {
 
     public void setPoints(Integer points) {
         this.points = points;
+    }
+
+    public Integer getParentSubjectId() {
+        return parentSubjectId;
+    }
+
+    public void setParentSubjectId(Integer parentSubjectId) {
+        this.parentSubjectId = parentSubjectId;
     }
 
     

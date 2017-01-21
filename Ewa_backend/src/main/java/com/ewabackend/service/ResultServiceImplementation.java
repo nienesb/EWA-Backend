@@ -29,8 +29,8 @@ public class ResultServiceImplementation implements ResultService {
     }
 
     @Override
-    public void saveResult(Result result) {
-        dao.saveResult(result);
+    public Integer saveResult(Result result) {
+        return dao.saveResult(result);
     }
 
     @Override

@@ -15,7 +15,7 @@ import java.util.List;
 public interface SubjectService {
     Subject findById(int id);
 
-    void saveSubject(Subject subject);
+    Integer saveSubject(Subject subject);
 
     List findAllSubjects();
 

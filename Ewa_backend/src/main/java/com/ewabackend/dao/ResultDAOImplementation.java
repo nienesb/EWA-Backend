@@ -26,8 +26,9 @@ public class ResultDAOImplementation extends AbstractDAO<Integer, Result> implem
     }
 
     @Override
-    public void saveResult(Result result) {
+    public Integer saveResult(Result result) {
         persist(result);
+        return result.getId();
     }
 
     @Override

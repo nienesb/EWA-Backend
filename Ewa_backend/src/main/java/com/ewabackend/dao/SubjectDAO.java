@@ -16,7 +16,7 @@ public interface SubjectDAO {
 
     Subject findById(int id);
 	 
-    void saveSubject(Subject subject);
+    Integer saveSubject(Subject subject);
      
     List<Subject> findAllSubjects();
 

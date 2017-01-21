@@ -18,7 +18,7 @@ public interface ResultService {
 
     Result findById(int id);
 
-    void saveResult(Result result);
+    Integer saveResult(Result result);
 
     void updateResult(Result result);
 
