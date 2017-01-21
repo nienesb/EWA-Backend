@@ -17,7 +17,7 @@ public interface ResultDAO {
  
     List<Result> findResultByUser(Integer userId);
     
-    List<Result> findResultsForUserWithBlock(Integer userId, Integer blockId);
+    List<Result> findResultsForUserWithBlock(Integer userId, Integer year, Integer blockId);
     
     Result findResultForUser(Integer userId, Integer subjectPart);
 }

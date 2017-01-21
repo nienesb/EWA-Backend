@@ -40,6 +40,9 @@ public class Result {
     private SubjectPart subjectPart;
 
     @Column
+    private Integer year;
+    
+    @Column
     private Integer block;
     
     public long getId() {
@@ -96,6 +99,14 @@ public class Result {
 
     public void setBlock(Integer block) {
         this.block = block;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
     }
 
     

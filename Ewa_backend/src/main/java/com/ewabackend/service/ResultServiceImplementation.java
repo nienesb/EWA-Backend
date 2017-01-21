@@ -55,8 +55,8 @@ public class ResultServiceImplementation implements ResultService {
     }
 
     @Override
-    public List<Result> findResultsForUserWithBlock(Integer userId, Integer blockId) {
-        return dao.findResultsForUserWithBlock(userId, blockId);
+    public List<Result> findResultsForUserWithBlock(Integer userId, Integer year, Integer blockId) {
+        return dao.findResultsForUserWithBlock(userId, year, blockId);
     }
     
 }

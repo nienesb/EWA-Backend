@@ -77,13 +77,13 @@ public class AppController {
         return results;
     }
 
-    @RequestMapping("/results/{studentnr}/{block}")
-    public List<Result> getResultsByStudentnrForBlock(@PathVariable("studentnr") Integer studentnr, @PathVariable("block") Integer block) {
+    @RequestMapping("/results/{studentnr}/{year}/{block}")
+    public List<Result> getResultsByStudentnrForBlock(@PathVariable("studentnr") Integer studentnr, @PathVariable("year") Integer year, @PathVariable("block") Integer block) {
         User user = userService.findUserByStudentnr(studentnr);
         if (user == null) {
             return null;
         }
-        List<Result> results = resultService.findResultsForUserWithBlock(user.getId(), block);
+        List<Result> results = resultService.findResultsForUserWithBlock(user.getId(),year, block);
         return results;
     }
 
