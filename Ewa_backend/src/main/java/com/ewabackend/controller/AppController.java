@@ -23,6 +23,7 @@ import com.ewabackend.service.UserService;
 import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -132,7 +133,7 @@ public class AppController {
     }
 
     @RequestMapping(value="/admin/subject", method=RequestMethod.POST)
-    public String createSubject(Subject subject) {
+    public String createSubject(@RequestBody Subject subject) {
         subjectService.saveSubject(subject);
         return "Het is gelukt nigga";
     }
