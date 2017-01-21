@@ -23,6 +23,7 @@ import com.ewabackend.service.UserService;
 import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -87,6 +88,16 @@ public class AppController {
         return results;
     }
 
+     @RequestMapping("/results/{studentnr}/{year}")
+    public List<Result> getResultsByStudentnrForYear(@PathVariable("studentnr") Integer studentnr, @PathVariable("year") Integer year) {
+        User user = userService.findUserByStudentnr(studentnr);
+        if (user == null) {
+            return null;
+        }
+        List<Result> results = resultService.findResultsForUserWithYear(user.getId(),year);
+        return results;
+    }
+    
     @RequestMapping("/result/{studentnr}/{subjectPartId}")
     public Result getResultsForSubjectByStudentnr(@PathVariable("studentnr") Integer studentnr, @PathVariable("subjectPartId") Integer subjectPartId) {
         User user = userService.findUserByStudentnr(studentnr);
@@ -120,4 +131,9 @@ public class AppController {
         return groupService.findAllGroups();
     }
 
+    @RequestMapping(value="/admin/subject", method=RequestMethod.POST)
+    public String createSubject(Subject subject) {
+        subjectService.saveSubject(subject);
+        return "Het is gelukt nigga";
+    }
 }

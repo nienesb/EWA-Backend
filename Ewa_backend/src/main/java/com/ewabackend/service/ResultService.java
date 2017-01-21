@@ -30,4 +30,6 @@ public interface ResultService {
     
     Result findResultForUser(Integer userId, Integer subjectPart);
 
+    List<Result> findResultsForUserWithYear(Integer id, Integer year);
+
 }

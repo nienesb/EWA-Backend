@@ -61,4 +61,12 @@ public class ResultDAOImplementation extends AbstractDAO<Integer, Result> implem
         criteria.add(Restrictions.eq("year", year));
         return (List<Result>) criteria.list();
     }
+
+    @Override
+    public List<Result> findResultsForUserWithYear(Integer userId, Integer year) {
+        Criteria criteria = createEntityCriteria();
+        criteria.add(Restrictions.eq("userId", userId));
+        criteria.add(Restrictions.eq("year", year));
+        return (List<Result>) criteria.list();
+    }
 }
