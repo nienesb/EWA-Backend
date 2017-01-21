@@ -38,12 +38,13 @@ public class User implements Serializable{
     @PrimaryKeyJoinColumn(name="group_id")
     private Group group;
     
+    @ManyToOne()
+    @PrimaryKeyJoinColumn(name="role_id")
+    private UserRole userRole;
+    
     @Column(name="studentnr")
     private Integer studentNumber;
-    
-    @Column(name="is_teacher")
-    private Boolean isTeacher;
-    
+
     @Column(name="first_name")
     private String firstName;
     
@@ -54,6 +55,10 @@ public class User implements Serializable{
         return group;
     }
 
+    public UserRole getUserRole() {
+        return userRole;
+    }
+    
     public void setGroup(Group group) {
         this.group = group;
     }
@@ -66,13 +71,7 @@ public class User implements Serializable{
         this.studentNumber = studentNumber;
     }
 
-    public Boolean getIsTeacher() {
-        return isTeacher;
-    }
 
-    public void setIsTeacher(Boolean isTeacher) {
-        this.isTeacher = isTeacher;
-    }
 
     public String getFirstName() {
         return firstName;
