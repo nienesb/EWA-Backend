@@ -27,7 +27,7 @@ public class Group {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column()
-    private long id;
+    private Integer id;
     
     @Column()
     private String name;
@@ -38,11 +38,11 @@ public class Group {
     @OneToMany(targetEntity=GroupHasSubject.class, mappedBy="group", fetch = FetchType.EAGER)
     private Set<GroupHasSubject> subjects;
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

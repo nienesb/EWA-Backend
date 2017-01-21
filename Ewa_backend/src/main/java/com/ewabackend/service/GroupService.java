@@ -22,5 +22,5 @@ public interface GroupService {
     
     void saveGroup(Group group);
 
-    List findAllGroups();
+    List<Group> findAllGroups();
 }

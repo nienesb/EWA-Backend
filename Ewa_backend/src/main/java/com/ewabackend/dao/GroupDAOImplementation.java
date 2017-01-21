@@ -51,7 +51,8 @@ public class GroupDAOImplementation extends AbstractDAO<Integer, Group> implemen
     public List<Group> findAllGroups() {
         Criteria criteria = createEntityCriteria().addOrder(Order.asc("year"));
         criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
-        return (List<Group>) (Group) criteria.list();
+        List<Group> groups = (List<Group>) criteria.list();
+        return groups;
     }
     
 }

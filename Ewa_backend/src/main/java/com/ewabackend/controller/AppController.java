@@ -41,15 +41,17 @@ public class AppController {
 
     @Autowired
     ResultService resultService;
-
+    
+    @Autowired
+    GroupService groupService;
+ 
     @Autowired
     SubjectService subjectService;
 
     @Autowired
     SubjectPartService subjectPartService;
 
-    @Autowired
-    GroupService groupService;
+   
 
     @RequestMapping("/users")
     public List<User> getUsers() {
@@ -89,7 +91,7 @@ public class AppController {
         return results;
     }
 
-     @RequestMapping("/results/{studentnr}/{year}")
+    @RequestMapping("/results/{studentnr}/{year}")
     public List<Result> getResultsByStudentnrForYear(@PathVariable("studentnr") Integer studentnr, @PathVariable("year") Integer year) {
         User user = userService.findUserByStudentnr(studentnr);
         if (user == null) {
