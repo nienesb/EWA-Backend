@@ -34,7 +34,7 @@ public class SubjectPart {
     @PrimaryKeyJoinColumn(name="parentsubject_id")
     private Subject parentSubject;
 
-    @Column(name="parentsubject_id")
+    @Column(name="parentsubject_id", insertable=false, updatable=false)
     private Integer parentSubjectId;
     
     @Column
