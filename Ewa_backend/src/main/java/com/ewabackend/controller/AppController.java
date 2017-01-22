@@ -6,10 +6,12 @@
 package com.ewabackend.controller;
 
 import com.ewabackend.entity.Group;
+import com.ewabackend.entity.GroupHasSubject;
 import com.ewabackend.entity.Result;
 import com.ewabackend.entity.Subject;
 import com.ewabackend.entity.SubjectPart;
 import com.ewabackend.entity.User;
+import com.ewabackend.service.GroupHasSubjectService;
 import com.ewabackend.service.GroupService;
 import com.ewabackend.service.ResultService;
 import com.ewabackend.service.SubjectPartService;
@@ -21,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.ewabackend.service.UserService;
 import java.util.List;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -51,7 +52,8 @@ public class AppController {
     @Autowired
     SubjectPartService subjectPartService;
 
-   
+    @Autowired
+    GroupHasSubjectService groupHasSubjectService;
 
     @RequestMapping("/users")
     public List<User> getUsers() {
@@ -59,6 +61,12 @@ public class AppController {
         return users;
     }
 
+    @RequestMapping("/users/teacher")
+    public List<User> getTeachers() {
+        List<User> users = userService.findTeachers();
+        return users;
+    }
+    
     @RequestMapping("/user/{studentnr}")
     public User getUserByStudentnr(@PathVariable Integer studentnr) {
         User user = userService.findUserByStudentnr(studentnr);
@@ -151,4 +159,10 @@ public class AppController {
         Integer id = resultService.saveResult(result);
         return resultService.findById(id);
     }
+    @RequestMapping(value="/admin/assignsubject", method=RequestMethod.POST)
+    public GroupHasSubject assignSubjectToGroup(@RequestBody GroupHasSubject groupHasSubject) {
+        Integer id = groupHasSubjectService.saveGroup(groupHasSubject);
+        return groupHasSubjectService.findById(id);
+    }
+   
 }

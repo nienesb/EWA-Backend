@@ -32,4 +32,5 @@ public interface UserService {
     
     boolean isUserStudentnrUnique(Integer id, Integer studentnr);
 
+    List findTeachers();
 }

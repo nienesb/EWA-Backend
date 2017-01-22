@@ -26,7 +26,7 @@ public class GroupHasSubject {
     @Id    
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column
-    private long id;
+    private Integer id;
     
     @ManyToOne
     @PrimaryKeyJoinColumn(name="group_id")
@@ -49,11 +49,11 @@ public class GroupHasSubject {
     @Column(name="exam_date")
     private Timestamp examDate;
     
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     

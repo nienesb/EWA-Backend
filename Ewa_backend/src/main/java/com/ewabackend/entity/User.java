@@ -40,6 +40,9 @@ public class User implements Serializable{
     @PrimaryKeyJoinColumn(name="role_id")
     private UserRole userRole;
     
+    @Column(name="userRole_id", insertable=false, updatable=false)
+    private Integer userRoleId;
+    
     @Column(name="studentnr")
     private Integer studentNumber;
 
@@ -102,6 +105,14 @@ public class User implements Serializable{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Integer getUserRoleId() {
+        return userRoleId;
+    }
+
+    public void setUserRoleId(Integer userRoleId) {
+        this.userRoleId = userRoleId;
     }
 
     

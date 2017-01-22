@@ -68,4 +68,9 @@ public class UserServiceImplementation implements UserService {
       return dao.findUserByEmail(email);
     }
 
+    @Override
+    public List findTeachers() {
+       return dao.findTeachers();
+    }
+
 }
