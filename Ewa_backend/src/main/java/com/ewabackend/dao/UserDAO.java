@@ -17,5 +17,7 @@ public interface UserDAO{
     User findUserByStudentnr(Integer studentnr);
     
     User findUserByEmail(String email);
+    
+    List<User> findTeachers();
 }
 

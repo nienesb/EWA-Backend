@@ -8,6 +8,7 @@ package com.ewabackend.service;
 import com.ewabackend.dao.SubjectPartDAO;
 import com.ewabackend.entity.SubjectPart;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Service("subjectPartService")
 public class SubjectPartServiceImplementation implements SubjectPartService {
-
+    @Autowired
     SubjectPartDAO dao;
 
     @Override
@@ -27,8 +28,8 @@ public class SubjectPartServiceImplementation implements SubjectPartService {
     }
 
     @Override
-    public void saveSubjectPart(SubjectPart subjectPart) {
-      dao.saveSubjectPart(subjectPart);
+    public Integer saveSubjectPart(SubjectPart subjectPart) {
+      return dao.saveSubjectPart(subjectPart);
     }
 
     @Override

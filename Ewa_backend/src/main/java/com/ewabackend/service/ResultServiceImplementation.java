@@ -29,8 +29,8 @@ public class ResultServiceImplementation implements ResultService {
     }
 
     @Override
-    public void saveResult(Result result) {
-        dao.saveResult(result);
+    public Integer saveResult(Result result) {
+        return dao.saveResult(result);
     }
 
     @Override
@@ -55,8 +55,13 @@ public class ResultServiceImplementation implements ResultService {
     }
 
     @Override
-    public List<Result> findResultsForUserWithBlock(Integer userId, Integer blockId) {
-        return dao.findResultsForUserWithBlock(userId, blockId);
+    public List<Result> findResultsForUserWithBlock(Integer userId, Integer year, Integer blockId) {
+        return dao.findResultsForUserWithBlock(userId, year, blockId);
+    }
+
+    @Override
+    public List<Result> findResultsForUserWithYear(Integer userId, Integer year) {
+        return dao.findResultsForUserWithYear(userId, year);
     }
     
 }

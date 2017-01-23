@@ -29,8 +29,8 @@ public class SubjectServiceImplementation implements SubjectService{
     }
 
     @Override
-    public void saveSubject(Subject subject) {
-        dao.saveSubject(subject);
+    public Integer saveSubject(Subject subject) {
+        return dao.saveSubject(subject);
     }
 
     @Override

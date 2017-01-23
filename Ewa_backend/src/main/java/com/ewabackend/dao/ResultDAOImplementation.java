@@ -26,8 +26,9 @@ public class ResultDAOImplementation extends AbstractDAO<Integer, Result> implem
     }
 
     @Override
-    public void saveResult(Result result) {
+    public Integer saveResult(Result result) {
         persist(result);
+        return result.getId();
     }
 
     @Override
@@ -54,10 +55,19 @@ public class ResultDAOImplementation extends AbstractDAO<Integer, Result> implem
     }
 
     @Override
-    public List<Result> findResultsForUserWithBlock(Integer userId, Integer blockId) {
+    public List<Result> findResultsForUserWithBlock(Integer userId, Integer year, Integer blockId) {
         Criteria criteria = createEntityCriteria();
         criteria.add(Restrictions.eq("userId", userId));
         criteria.add(Restrictions.eq("block", blockId));
+        criteria.add(Restrictions.eq("year", year));
+        return (List<Result>) criteria.list();
+    }
+
+    @Override
+    public List<Result> findResultsForUserWithYear(Integer userId, Integer year) {
+        Criteria criteria = createEntityCriteria();
+        criteria.add(Restrictions.eq("userId", userId));
+        criteria.add(Restrictions.eq("year", year));
         return (List<Result>) criteria.list();
     }
 }

@@ -8,6 +8,8 @@ package com.ewabackend.entity;
 import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -21,9 +23,10 @@ import javax.persistence.Transient;
 @Entity(name="ewa_group_has_subject")
 public class GroupHasSubject {
     
-    @Id
+    @Id    
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column
-    private long id;
+    private Integer id;
     
     @ManyToOne
     @PrimaryKeyJoinColumn(name="group_id")
@@ -46,11 +49,11 @@ public class GroupHasSubject {
     @Column(name="exam_date")
     private Timestamp examDate;
     
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     

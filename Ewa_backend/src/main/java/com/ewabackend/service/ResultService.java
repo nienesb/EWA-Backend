@@ -18,7 +18,7 @@ public interface ResultService {
 
     Result findById(int id);
 
-    void saveResult(Result result);
+    Integer saveResult(Result result);
 
     void updateResult(Result result);
 
@@ -26,8 +26,10 @@ public interface ResultService {
 
     List<Result> findResultsForUser(Integer userId);
     
-    List<Result> findResultsForUserWithBlock(Integer userId, Integer blockId);
+    List<Result> findResultsForUserWithBlock(Integer userId, Integer year, Integer blockId);
     
     Result findResultForUser(Integer userId, Integer subjectPart);
+
+    List<Result> findResultsForUserWithYear(Integer id, Integer year);
 
 }

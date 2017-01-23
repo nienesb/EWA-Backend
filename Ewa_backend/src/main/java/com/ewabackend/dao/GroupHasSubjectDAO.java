@@ -5,19 +5,18 @@
  */
 package com.ewabackend.dao;
 
-import com.ewabackend.entity.Subject;
+import com.ewabackend.entity.GroupHasSubject;
 import java.util.List;
 
 /**
  *
  * @author Milan
  */
-public interface SubjectDAO {
+public interface GroupHasSubjectDAO {
+    
+    GroupHasSubject findById(Integer id);
+    
+    Integer saveGroup(GroupHasSubject groupHasSubject);
 
-    Subject findById(int id);
-	 
-    Integer saveSubject(Subject subject);
-     
-    List<Subject> findAllSubjects();
-
+    List<GroupHasSubject> findAllGroupHasSubject();
 }

@@ -16,7 +16,7 @@ public interface SubjectPartDAO {
     
     SubjectPart findById(int id);
 	 
-    void saveSubjectPart(SubjectPart subjectPart);
+    Integer saveSubjectPart(SubjectPart subjectPart);
      
     List<SubjectPart> findAllSubjectParts();
 

@@ -6,21 +6,18 @@
 package com.ewabackend.service;
 
 import com.ewabackend.entity.Group;
+import com.ewabackend.entity.GroupHasSubject;
 import java.util.List;
 
 /**
  *
  * @author Milan
  */
-public interface GroupService {
-
-    Group findById(Integer id);
-
-    Group findByName(String name);
+public interface GroupHasSubjectService {
     
-    List findByYear(Integer year);
+    GroupHasSubject findById(Integer id);
     
-    void saveGroup(Group group);
+    Integer saveGroup(GroupHasSubject groupHasSubject);
 
-    List<Group> findAllGroups();
+    List<GroupHasSubject> findAllGroupHasSubject();
 }

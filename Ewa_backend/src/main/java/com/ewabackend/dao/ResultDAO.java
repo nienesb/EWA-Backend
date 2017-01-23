@@ -11,13 +11,15 @@ import java.util.List;
 public interface ResultDAO {
     Result findById(int id);
 	 
-    void saveResult(Result result);
+    Integer saveResult(Result result);
      
     List<Result> findAllResults();
  
     List<Result> findResultByUser(Integer userId);
     
-    List<Result> findResultsForUserWithBlock(Integer userId, Integer blockId);
+    List<Result> findResultsForUserWithBlock(Integer userId, Integer year, Integer blockId);
     
     Result findResultForUser(Integer userId, Integer subjectPart);
+
+    List<Result> findResultsForUserWithYear(Integer userId, Integer year);
 }

@@ -53,4 +53,15 @@ public class UserDAOImplementation extends AbstractDAO<Integer, User> implements
         criteria.add(Restrictions.eq("email", email));
         return (User) criteria.uniqueResult();
     }
+
+    @Override
+    public List<User> findTeachers() {
+        Criteria criteria = createEntityCriteria().addOrder(Order.asc("id"));
+        criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+        criteria.add(Restrictions.eq("userRoleId", 2));
+        List<User> users = (List<User>) criteria.list();
+        return users;
+    }
+    
+    
 }

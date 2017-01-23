@@ -8,6 +8,7 @@ package com.ewabackend.service;
 import com.ewabackend.dao.GroupDAO;
 import com.ewabackend.entity.Group;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service("groupService")
 @Transactional
 public class GroupServiceImplementation implements GroupService{
+    @Autowired
     GroupDAO dao;
     
     @Override
@@ -42,7 +44,7 @@ public class GroupServiceImplementation implements GroupService{
     }
 
     @Override
-    public List findAllGroups() {
+    public List<Group> findAllGroups() {
        return dao.findAllGroups();
     }
     

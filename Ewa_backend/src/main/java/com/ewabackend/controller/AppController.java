@@ -6,10 +6,12 @@
 package com.ewabackend.controller;
 
 import com.ewabackend.entity.Group;
+import com.ewabackend.entity.GroupHasSubject;
 import com.ewabackend.entity.Result;
 import com.ewabackend.entity.Subject;
 import com.ewabackend.entity.SubjectPart;
 import com.ewabackend.entity.User;
+import com.ewabackend.service.GroupHasSubjectService;
 import com.ewabackend.service.GroupService;
 import com.ewabackend.service.ResultService;
 import com.ewabackend.service.SubjectPartService;
@@ -21,8 +23,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.ewabackend.service.UserService;
 import java.util.List;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -39,7 +42,10 @@ public class AppController {
 
     @Autowired
     ResultService resultService;
-
+    
+    @Autowired
+    GroupService groupService;
+ 
     @Autowired
     SubjectService subjectService;
 
@@ -47,7 +53,7 @@ public class AppController {
     SubjectPartService subjectPartService;
 
     @Autowired
-    GroupService groupService;
+    GroupHasSubjectService groupHasSubjectService;
 
     @RequestMapping("/users")
     public List<User> getUsers() {
@@ -55,6 +61,12 @@ public class AppController {
         return users;
     }
 
+    @RequestMapping("/users/teacher")
+    public List<User> getTeachers() {
+        List<User> users = userService.findTeachers();
+        return users;
+    }
+    
     @RequestMapping("/user/{studentnr}")
     public User getUserByStudentnr(@PathVariable Integer studentnr) {
         User user = userService.findUserByStudentnr(studentnr);
@@ -77,16 +89,26 @@ public class AppController {
         return results;
     }
 
-    @RequestMapping("/results/{studentnr}/{block}")
-    public List<Result> getResultsByStudentnrForBlock(@PathVariable("studentnr") Integer studentnr, @PathVariable("block") Integer block) {
+    @RequestMapping("/results/{studentnr}/{year}/{block}")
+    public List<Result> getResultsByStudentnrForBlock(@PathVariable("studentnr") Integer studentnr, @PathVariable("year") Integer year, @PathVariable("block") Integer block) {
         User user = userService.findUserByStudentnr(studentnr);
         if (user == null) {
             return null;
         }
-        List<Result> results = resultService.findResultsForUserWithBlock(user.getId(), block);
+        List<Result> results = resultService.findResultsForUserWithBlock(user.getId(),year, block);
         return results;
     }
 
+    @RequestMapping("/results/{studentnr}/{year}")
+    public List<Result> getResultsByStudentnrForYear(@PathVariable("studentnr") Integer studentnr, @PathVariable("year") Integer year) {
+        User user = userService.findUserByStudentnr(studentnr);
+        if (user == null) {
+            return null;
+        }
+        List<Result> results = resultService.findResultsForUserWithYear(user.getId(),year);
+        return results;
+    }
+    
     @RequestMapping("/result/{studentnr}/{subjectPartId}")
     public Result getResultsForSubjectByStudentnr(@PathVariable("studentnr") Integer studentnr, @PathVariable("subjectPartId") Integer subjectPartId) {
         User user = userService.findUserByStudentnr(studentnr);
@@ -120,4 +142,27 @@ public class AppController {
         return groupService.findAllGroups();
     }
 
+    @RequestMapping(value="/admin/subject", method=RequestMethod.POST)
+    public Subject createSubject(@RequestBody Subject subject) {
+        Integer id = subjectService.saveSubject(subject);
+        return subjectService.findById(id);
+    }
+    
+    @RequestMapping(value="/admin/subjectpart", method=RequestMethod.POST)
+    public SubjectPart createSubject(@RequestBody SubjectPart subjectPart) {
+        Integer id = subjectPartService.saveSubjectPart(subjectPart);
+        return subjectPartService.findById(id);
+    }
+    
+    @RequestMapping(value="/teacher/grade", method=RequestMethod.POST)
+    public Result createResultForUser(@RequestBody Result result) {
+        Integer id = resultService.saveResult(result);
+        return resultService.findById(id);
+    }
+    @RequestMapping(value="/admin/assignsubject", method=RequestMethod.POST)
+    public GroupHasSubject assignSubjectToGroup(@RequestBody GroupHasSubject groupHasSubject) {
+        Integer id = groupHasSubjectService.saveGroup(groupHasSubject);
+        return groupHasSubjectService.findById(id);
+    }
+   
 }
